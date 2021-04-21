@@ -8,6 +8,7 @@ class WikipediaSpider(CrawlSpider):
     allowed_domains = ['en.wikipedia.org']
     start_urls = ['http://en.wikipedia.org/wiki/Kevin_Bacon']
 
+    ##finds links begin with 'wiki/' and following anything else
     rules = [Rule(LinkExtractor(allow=r'wiki/((?!:).)*$'), callback='parse_info', follow=True)]
 
     def parse_info(self, response):
